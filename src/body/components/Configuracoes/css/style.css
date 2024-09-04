@@ -1,0 +1,25 @@
+.container {
+    /* Garante que o container ocupa a largura total */
+    width: 100%;
+  }
+  
+  .d-flex {
+    display: flex;
+  }
+  
+  .justify-content-end {
+    justify-content: flex-end;
+  }
+  
+  .box {
+    background-color: #f8f9fa; /* Cor de fundo da caixa */
+    border-radius: 8px;       /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra da caixa */
+    width: 300px;             /* Largura da caixa */
+    text-align: center;       /* Centraliza o texto dentro da caixa */
+  }
+  
+  .btn-group-vertical .btn {
+    margin-bottom: 10px; /* Ajuste o valor conforme necessário */
+  }
+  

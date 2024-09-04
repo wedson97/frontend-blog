@@ -1,0 +1,11 @@
+/* index.css */
+.alerta {
+    position: fixed !important; /* Fixa o alerta na tela */
+    top: 100px !important; /* Ajuste conforme necessário */
+    right: 10px !important; /* Ajuste conforme necessário */
+    z-index: 9999 !important; /* Garante que o alerta esteja sobre outros elementos */
+    margin: 0 !important; /* Remove margens padrão */
+    padding: 10px !important; /* Ajuste conforme necessário para o conteúdo */
+    border-radius: 5px !important; /* Ajuste conforme necessário para bordas arredondadas */
+  }
+  

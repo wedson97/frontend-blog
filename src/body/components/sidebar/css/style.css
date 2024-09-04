@@ -1,0 +1,44 @@
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-logo {
+  width: 150px; /* Ajuste o tamanho da imagem conforme necessário */
+  height: 150px; /* Certifique-se de que a altura é igual à largura */
+  border-radius: 50%; /* Torna a imagem redonda */
+  object-fit: cover; /* Garante que a imagem se ajuste corretamente */
+  margin-bottom: 20px;
+  align-items: center;
+  margin-left: 30%;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar ul li {
+  padding: 10px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar ul li a:hover {
+  background-color: #575757;
+}

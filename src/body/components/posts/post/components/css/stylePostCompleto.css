@@ -1,0 +1,51 @@
+.postContainerPostCompleto {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.imagePostCompleto {
+  width: 100%; /* Ocupa toda a largura do container */
+  height: auto; /* Ajusta a altura para manter a proporção */
+  border-radius: 8px 8px 0 0; /* Bordas arredondadas apenas no topo */
+  object-fit: cover; /* Cobre o espaço disponível sem distorção */
+  flex-shrink: 0;
+}
+
+.contentPostCompleto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  width: 100%; /* Ocupa toda a largura do container */
+}
+
+.titlePostCompleto {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.textPostCompleto {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .postContainerPostCompleto {
+    flex-direction: column;
+  }
+
+  .imagePostCompleto {
+    width: 100%;
+    height: auto;
+  }
+}

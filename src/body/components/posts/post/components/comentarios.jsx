@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../../../../api/requisicoes';
 import { useUser } from '../../../../../context/UseContext';
+import { json } from 'react-router-dom';
 
 function Comentarios({ post_id }) {
   const { login } = useUser();
   const [comentarios, setComentarios] = useState([]);
-
+  
   const [jsonPost, setJsonPost] = useState({
     post_id: parseInt(post_id),
     autor_id: parseInt(login.id),
@@ -46,11 +47,14 @@ function Comentarios({ post_id }) {
         await api.post('/comentarios', jsonPost);
         const response = await api.get('/comentarios/' + post_id);
         setComentarios(response.data.comentario)
+        setJsonPost((prevState) => ({
+          ...prevState,
+          conteudo: ''
+        }));
       } catch (error) {
         console.error('Erro ao adicionar comentário:', error);
       }
       
-      console.log(comentarios);
       
     }
   };

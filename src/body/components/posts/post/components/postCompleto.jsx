@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useUser } from '../../../../../context/UseContext';
 import './css/stylePostCompleto.css'
@@ -8,13 +8,46 @@ import api from '../../../../../api/requisicoes';
 
 
 function PostCompleto() {
+
   const { id } = useParams();
   const { posts } = useUser();
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const post = posts.find(post => post.id === parseInt(id));
+  useEffect(() => {
+    localStorage.setItem('post_id', id);
+
+    const procurarPost = posts.find(post => post.id === parseInt(id));
+
+    if (procurarPost) {
+      setPost(procurarPost);
+      setLoading(false);
+    } else {
+      api.get('/posts/'+id)
+        .then(response => {
+          setPost(response.data.posts);
+          setLoading(false);
+        })
+        .catch(err => {
+          setError(err);
+          setLoading(false);
+        });
+    }
+  }, [id, posts]);
+
+  if (loading) {
+    return <p>Carregando...</p>;
+  }
+
+  if (error) {
+    return <p>Erro ao carregar o post.</p>;
+  }
+
   if (!post) {
     return <p>Post não encontrado.</p>;
   }
+
   
   return (
     <div className="postContainerPostCompleto">

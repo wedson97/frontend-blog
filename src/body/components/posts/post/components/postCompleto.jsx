@@ -17,7 +17,6 @@ function PostCompleto() {
 
   useEffect(() => {
     localStorage.setItem('post_id', id);
-
     const procurarPost = posts.find(post => post.id === parseInt(id));
 
     if (procurarPost) {
@@ -50,7 +49,8 @@ function PostCompleto() {
 
   
   return (
-    <div className="postContainerPostCompleto">
+    <div className='containerBodyPostCompleto'>
+      <div className="postContainerPostCompleto">
       <img 
         src={`${api.defaults.baseURL}images/${post.imagem_url}`} 
         alt={`Imagem do ${post.titulo}`} 
@@ -63,6 +63,8 @@ function PostCompleto() {
       <LikeDeslike usuario_id={id} post_id={post.id}/>
       <Comentarios usuario_id={id} post_id={post.id}/>
     </div>
+    </div>
+    
   );
 }
 

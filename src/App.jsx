@@ -10,6 +10,7 @@ import Cadastro from './body/components/LoginCadastro/Cadastro.jsx';
 import { UserProvider } from './context/UseContext.jsx';
 import Alerta from './body/components/Alerta/Alerta.jsx';
 import Configuracoes from './body/components/Configuracoes/index.jsx';
+import './style.css'; 
 function App() {
   return (
     <UserProvider>

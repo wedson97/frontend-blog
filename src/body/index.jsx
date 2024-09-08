@@ -5,8 +5,10 @@ function Body() {
   
   return (
     <>
-        
-      <Post/>
+        <div className="containerGeral">
+          <Post/>
+        </div> 
+      
     </>
   )
 }

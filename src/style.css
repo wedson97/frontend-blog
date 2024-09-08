@@ -1,0 +1,10 @@
+#root, body{
+    height: 100%;
+    background-image: url('./assets/imagens/plano3.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}

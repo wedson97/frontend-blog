@@ -1,3 +1,14 @@
+/* .containerBodyPostCompleto{
+  background-image: url('../../../../../../../plano3.jpg');
+  height: 100%;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  margin: 0 !important;
+  padding: 0 !important;
+} */
+
 .postContainerPostCompleto {
   display: flex;
   flex-direction: column;

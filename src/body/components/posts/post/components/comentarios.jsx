@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import api from '../../../../../api/requisicoes';
 import { useUser } from '../../../../../context/UseContext';
 import { json } from 'react-router-dom';
@@ -68,91 +68,82 @@ function Comentarios({ post_id }) {
 
   return (
     <div style={{ width: '100%', maxWidth: '600px', margin: 'auto' }}>
-      <div style={{ marginBottom: '20px' }}>
+      <div style={{ marginBottom: '20px', display: 'flex', gap: '10px' }}>
         <input
           type="text"
           value={jsonPost.conteudo}
           onChange={handleChangeConteudo}
           placeholder="Digite seu comentário"
-          style={{ width: 'calc(100% - 100px)', padding: '8px' }}
+          style={{
+            width: 'calc(100% - 120px)',
+            padding: '10px',
+            borderRadius: '5px',
+            border: '1px solid #ccc',
+            fontSize: '16px',
+          }}
         />
-        <button onClick={adicionarComentario} style={{ padding: '8px 16px' }}>
+        <button
+          onClick={adicionarComentario}
+          style={{
+            padding: '5px 10px',
+            backgroundColor: '#007BFF',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            fontSize: '16px',
+          }}
+        >
           Adicionar
         </button>
       </div>
-
+  
       {comentarios.length > 0 ? (
         comentarios.map((comentario) => (
           <div
             key={comentario.id}
             style={{
               display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
+              justifyContent: 'space-between',  // Garante que o conteúdo e o botão fiquem separados
+              alignItems: 'center',  // Centraliza verticalmente
               padding: '10px',
-              borderBottom: '1px solid #ddd'
+              borderBottom: '1px solid #ddd',
+              marginBottom: '10px',
+              borderRadius: '5px',
+              backgroundColor: '#f9f9f9',
             }}
           >
-            {comentario.autor_id === login.id ? (
-              <div>
-                <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, fontWeight: 'bold' }}>
-                    {comentario.nome_usuario}
-                  </p>
-                </div>
-
-                <div style={{ flex: 1 }}>
-                  <p style={{ margin: '5px 0' }}>{comentario.conteudo}</p>
-                </div>
-
-                <div>
-                  <button onClick={() => deleteComentario(comentario.id)}>
-                    Excluir
-                  </button>
-                </div>
-
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                    fontSize: '12px',
-                    color: 'gray'
-                  }}
-                >
-                  <p style={{ margin: 0 }}>{comentario.criado_em}</p>
-                </div>
-              </div>
-            ) : (
-              <div
+            <div style={{ flex: 1 }}>
+              <p style={{ margin: 0, fontWeight: 'bold' }}>{comentario.nome_usuario}</p>
+              <p style={{ margin: '5px 0', color: '#333' }}>{comentario.conteudo}</p>
+              {/* <p style={{ fontSize: '12px', color: 'gray' }}>{comentario.criado_em}</p> */}
+              <p style={{ fontSize: '12px', color: 'gray' }}>{new Date(comentario.criado_em).toLocaleString('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  })}</p>
+              
+              
+            </div>
+            {comentario.autor_id === login.id && (
+              <button
+                onClick={() => deleteComentario(comentario.id)}
                 style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  marginBottom: '15px'
+                  padding: '5px 10px',
+                  backgroundColor: '#dc3545',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '5px',
+                  cursor: 'pointer',
+                  fontSize: '14px',
+                  marginLeft: '20px',  // Para dar um espaço entre o conteúdo e o botão
                 }}
               >
-                <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, fontWeight: 'bold' }}>
-                    {comentario.nome_usuario}
-                  </p>
-                </div>
-
-                <div style={{ flex: 1 }}>
-                  <p style={{ margin: '5px 0' }}>{comentario.conteudo}</p>
-                </div>
-
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                    fontSize: '12px',
-                    color: 'gray'
-                  }}
-                >
-                  <p style={{ margin: 0 }}>{comentario.criado_em}</p>
-                </div>
-              </div>
+                Excluir
+              </button>
             )}
           </div>
         ))
@@ -161,6 +152,8 @@ function Comentarios({ post_id }) {
       )}
     </div>
   );
+  
+  
 }
 
 export default Comentarios;

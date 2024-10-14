@@ -17,8 +17,11 @@ export const UserProvider = ({ children }) => {
   // Alerta
   const [alertaStatus, setAlertaStatus] = useState({ tipo: '', mensagem: '', duracao: 3000 });
 
+  // USUARIOS
+  const [usuarios, setUsuarios] = useState([])
+
   return (
-    <UserContext.Provider value={{ login, setLogin, showSideBar, handleShowSideBar,posts,setPosts, alertaStatus, setAlertaStatus }}>
+    <UserContext.Provider value={{ usuarios, setUsuarios,login, setLogin, showSideBar, handleShowSideBar,posts,setPosts, alertaStatus, setAlertaStatus }}>
       {children}
     </UserContext.Provider>
   );

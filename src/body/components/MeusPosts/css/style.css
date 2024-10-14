@@ -91,4 +91,50 @@
   border: 1px solid #ccc; /* Adiciona uma borda de cor cinza clara */
   resize: vertical; /* Permite que o usuário redimensione verticalmente */
 }
-  
+/* Botão Editar */
+.editButton {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.editButton:hover {
+  background-color: #45a049; /* Verde escuro ao passar o mouse */
+}
+
+/* Botão Deletar */
+.deleteButton {
+  background-color: #f44336; /* Vermelho */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.deleteButton:hover {
+  background-color: #d32f2f; /* Vermelho escuro ao passar o mouse */
+}
+.postContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.postContainer .content {
+  flex-grow: 1;
+}
+
+.editButton,
+.deleteButton {
+  margin-left: auto; /* Empurra os botões para a direita */
+}

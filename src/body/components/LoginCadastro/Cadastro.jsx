@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import "./css/styleLogin.css";
 import api from '../../../api/requisicoes';
-import Alerta from '../Alerta/Alerta';
-import { useNavigate } from 'react-router-dom'; // Import do useNavigate
+import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { useUser } from '../../../context/UseContext';
 

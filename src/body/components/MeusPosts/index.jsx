@@ -140,8 +140,7 @@ function MeusPosts() {
                     {posts.length > 0 ? (
                         posts.map((post) => (
                             <div key={post.id} className="postContainer">
-                                <button onClick={() => handleSubmitEditar(post)}><AiFillEdit /></button>
-                                <button onClick={() => handleCloseModalDelete(post)}><AiFillDelete /></button>
+                                
                                 <img
                                     src={`${api.defaults.baseURL}images/${post.imagem_url}`}
                                     alt={`Imagem do ${post.titulo}`}
@@ -150,6 +149,12 @@ function MeusPosts() {
                                 <div className="content">
                                     <h2 className="title">{post.titulo}</h2>
                                 </div>
+                                <button className="editButton" onClick={() => handleSubmitEditar(post)}>
+                                    <AiFillEdit />
+                                </button>
+                                <button className="deleteButton" onClick={() => handleCloseModalDelete(post)}>
+                                    <AiFillDelete />
+                                </button>
                             </div>
                         ))
                     ) : (
